@@ -1,3 +1,7 @@
+
+import java.awt.Color;
+import javax.swing.BorderFactory;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,6 +18,8 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        
+
     }
 
     /**
@@ -25,22 +31,446 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1HOME = new javax.swing.JPanel();
+        jPanel2HOME = new javax.swing.JPanel();
+        totalPengeluaranHome = new javax.swing.JLabel();
+        pemasukanPengeluaranHome = new javax.swing.JLabel();
+        riawayatHome = new javax.swing.JLabel();
+        jPanel3Home = new javax.swing.JPanel();
+        jScrollPane1Home = new javax.swing.JScrollPane();
+        jTable1Home = new javax.swing.JTable();
+        jLabel5Home = new javax.swing.JLabel();
+        jComboBoxBulanHome = new javax.swing.JComboBox<>();
+        TahunHome = new javax.swing.JLabel();
+        jComboBoxTahunHome = new javax.swing.JComboBox<>();
+        jButtonTampilanHome = new javax.swing.JButton();
+        jPanel4Home = new javax.swing.JPanel();
+        jenisHome = new javax.swing.JLabel();
+        kategoriHome = new javax.swing.JLabel();
+        jumlahHome = new javax.swing.JLabel();
+        keteranganHome = new javax.swing.JLabel();
+        dateHome = new javax.swing.JLabel();
+        jTextFieldDateHome = new javax.swing.JTextField();
+        jComboBoxKategoriHome = new javax.swing.JComboBox<>();
+        jTextFieldJumlahHome = new javax.swing.JTextField();
+        jTextFieldKeteranganHome = new javax.swing.JTextField();
+        incomeHome = new javax.swing.JCheckBox();
+        expeenseHome = new javax.swing.JCheckBox();
+        jPanel5Home = new javax.swing.JPanel();
+        DateHome = new javax.swing.JLabel();
+        jTextFieldHome = new javax.swing.JTextField();
+        totalHome = new javax.swing.JLabel();
+        OKTotalHome = new javax.swing.JButton();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jTextField8 = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(360, 472));
+        setName("frame2HOME"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(400, 500));
+
+        jPanel1HOME.setBackground(new java.awt.Color(0, 0, 153));
+
+        totalPengeluaranHome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        totalPengeluaranHome.setText("TOTAL PENGELUARAN");
+
+        pemasukanPengeluaranHome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        pemasukanPengeluaranHome.setText("PEMASUKAN & PENGELUARAN");
+
+        riawayatHome.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        riawayatHome.setText("RIWAYAT");
+
+        jPanel3Home.setBackground(new java.awt.Color(0, 0, 153));
+
+        jTable1Home.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Bulan", "Jenis", "Kategori", "Jumlah", "Keterangan"
+            }
+        ));
+        jScrollPane1Home.setViewportView(jTable1Home);
+
+        jLabel5Home.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5Home.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5Home.setText("BULAN");
+
+        jComboBoxBulanHome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "Desember" }));
+        jComboBoxBulanHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxBulanHomeActionPerformed(evt);
+            }
+        });
+
+        TahunHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TahunHome.setForeground(new java.awt.Color(255, 255, 255));
+        TahunHome.setText("TAHUN");
+
+        jComboBoxTahunHome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2026", "2025", "2024", "2023", "2022" }));
+        jComboBoxTahunHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTahunHomeActionPerformed(evt);
+            }
+        });
+
+        jButtonTampilanHome.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonTampilanHome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonTampilanHome.setForeground(new java.awt.Color(102, 102, 102));
+        jButtonTampilanHome.setText("Tampilkan");
+        jButtonTampilanHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTampilanHomeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3HomeLayout = new javax.swing.GroupLayout(jPanel3Home);
+        jPanel3Home.setLayout(jPanel3HomeLayout);
+        jPanel3HomeLayout.setHorizontalGroup(
+            jPanel3HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3HomeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3HomeLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1Home)
+                        .addContainerGap())
+                    .addGroup(jPanel3HomeLayout.createSequentialGroup()
+                        .addGroup(jPanel3HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3HomeLayout.createSequentialGroup()
+                                .addComponent(jLabel5Home, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxBulanHome, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3HomeLayout.createSequentialGroup()
+                                .addComponent(TahunHome, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxTahunHome, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonTampilanHome)
+                        .addGap(17, 17, 17))))
+        );
+        jPanel3HomeLayout.setVerticalGroup(
+            jPanel3HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3HomeLayout.createSequentialGroup()
+                .addGroup(jPanel3HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3HomeLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5Home, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxBulanHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxTahunHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TahunHome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3HomeLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jButtonTampilanHome)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1Home, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel4Home.setBackground(new java.awt.Color(0, 0, 153));
+
+        jenisHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jenisHome.setForeground(new java.awt.Color(255, 255, 255));
+        jenisHome.setText("JENIS");
+
+        kategoriHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        kategoriHome.setForeground(new java.awt.Color(255, 255, 255));
+        kategoriHome.setText("KATEGORI");
+
+        jumlahHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jumlahHome.setForeground(new java.awt.Color(255, 255, 255));
+        jumlahHome.setText("JUMLAH");
+
+        keteranganHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        keteranganHome.setForeground(new java.awt.Color(255, 255, 255));
+        keteranganHome.setText("KETERANGAN");
+
+        dateHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        dateHome.setForeground(new java.awt.Color(255, 255, 255));
+        dateHome.setText("DATE");
+
+        jComboBoxKategoriHome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GAJI", "THR", "UANG KAGET", "MAKANAN", "MINUMAN", "TRANSPORTASI", "LISTRIK", "GAME", "E-WALLET", "LAUNDRY", "KOS", "SELF REWARD", " " }));
+
+        jTextFieldJumlahHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldJumlahHomeActionPerformed(evt);
+            }
+        });
+
+        incomeHome.setBackground(new java.awt.Color(0, 0, 153));
+        incomeHome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        incomeHome.setForeground(new java.awt.Color(204, 204, 204));
+        incomeHome.setText("INCOME");
+
+        expeenseHome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        expeenseHome.setForeground(new java.awt.Color(204, 204, 204));
+        expeenseHome.setText("EXPEENSE");
+
+        javax.swing.GroupLayout jPanel4HomeLayout = new javax.swing.GroupLayout(jPanel4Home);
+        jPanel4Home.setLayout(jPanel4HomeLayout);
+        jPanel4HomeLayout.setHorizontalGroup(
+            jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4HomeLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(keteranganHome)
+                    .addComponent(jumlahHome)
+                    .addComponent(kategoriHome)
+                    .addComponent(dateHome)
+                    .addComponent(jenisHome))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4HomeLayout.createSequentialGroup()
+                        .addComponent(incomeHome, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(expeenseHome, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextFieldKeteranganHome, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                        .addComponent(jTextFieldJumlahHome)
+                        .addComponent(jTextFieldDateHome)
+                        .addComponent(jComboBoxKategoriHome, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        jPanel4HomeLayout.setVerticalGroup(
+            jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4HomeLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jenisHome)
+                    .addGroup(jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(incomeHome)
+                        .addComponent(expeenseHome)))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dateHome)
+                    .addComponent(jTextFieldDateHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kategoriHome)
+                    .addComponent(jComboBoxKategoriHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jumlahHome)
+                    .addComponent(jTextFieldJumlahHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(keteranganHome)
+                    .addComponent(jTextFieldKeteranganHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
+        );
+
+        jPanel5Home.setBackground(new java.awt.Color(0, 0, 153));
+
+        DateHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        DateHome.setForeground(new java.awt.Color(255, 255, 255));
+        DateHome.setText("DATE");
+
+        totalHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        totalHome.setForeground(new java.awt.Color(255, 255, 255));
+        totalHome.setText("TOTAL");
+        totalHome.setToolTipText("");
+
+        OKTotalHome.setText("OK");
+        OKTotalHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OKTotalHomeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5HomeLayout = new javax.swing.GroupLayout(jPanel5Home);
+        jPanel5Home.setLayout(jPanel5HomeLayout);
+        jPanel5HomeLayout.setHorizontalGroup(
+            jPanel5HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5HomeLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel5HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DateHome)
+                    .addComponent(totalHome))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel5HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5HomeLayout.createSequentialGroup()
+                        .addComponent(jTextFieldHome)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel5HomeLayout.createSequentialGroup()
+                        .addComponent(jTextField9)
+                        .addGap(18, 18, 18)))
+                .addComponent(OKTotalHome, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+        jPanel5HomeLayout.setVerticalGroup(
+            jPanel5HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5HomeLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel5HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DateHome)
+                    .addComponent(OKTotalHome))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel5HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalHome))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel14.setText("LIMIT");
+
+        jPanel6.setBackground(new java.awt.Color(0, 0, 153));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("LIMIT");
+
+        jButton3.setText("OK");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addGap(14, 14, 14))
+        );
+
+        jTextField8.setBackground(new java.awt.Color(242, 242, 242));
+        jTextField8.setDisabledTextColor(new java.awt.Color(242, 242, 242));
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2HOMELayout = new javax.swing.GroupLayout(jPanel2HOME);
+        jPanel2HOME.setLayout(jPanel2HOMELayout);
+        jPanel2HOMELayout.setHorizontalGroup(
+            jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2HOMELayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2HOMELayout.createSequentialGroup()
+                        .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pemasukanPengeluaranHome)
+                            .addComponent(jPanel4Home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2HOMELayout.createSequentialGroup()
+                                .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(totalPengeluaranHome, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2HOMELayout.createSequentialGroup()
+                                        .addComponent(jLabel14)
+                                        .addGap(113, 113, 113)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel5Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(riawayatHome))
+                .addContainerGap())
+        );
+        jPanel2HOMELayout.setVerticalGroup(
+            jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2HOMELayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2HOMELayout.createSequentialGroup()
+                        .addComponent(pemasukanPengeluaranHome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2HOMELayout.createSequentialGroup()
+                                .addComponent(jPanel5Home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel4Home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(totalPengeluaranHome))
+                .addGap(8, 8, 8)
+                .addComponent(riawayatHome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3Home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel1HOMELayout = new javax.swing.GroupLayout(jPanel1HOME);
+        jPanel1HOME.setLayout(jPanel1HOMELayout);
+        jPanel1HOMELayout.setHorizontalGroup(
+            jPanel1HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1HOMELayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2HOME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1HOMELayout.setVerticalGroup(
+            jPanel1HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1HOMELayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2HOME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 654, Short.MAX_VALUE)
+            .addComponent(jPanel1HOME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addComponent(jPanel1HOME, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBoxBulanHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxBulanHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxBulanHomeActionPerformed
+
+    private void jComboBoxTahunHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTahunHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxTahunHomeActionPerformed
+
+    private void jButtonTampilanHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTampilanHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonTampilanHomeActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void OKTotalHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKTotalHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OKTotalHomeActionPerformed
+
+    private void jTextFieldJumlahHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldJumlahHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldJumlahHomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +508,42 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel DateHome;
+    private javax.swing.JButton OKTotalHome;
+    private javax.swing.JLabel TahunHome;
+    private javax.swing.JLabel dateHome;
+    private javax.swing.JCheckBox expeenseHome;
+    private javax.swing.JCheckBox incomeHome;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonTampilanHome;
+    private javax.swing.JComboBox<String> jComboBoxBulanHome;
+    private javax.swing.JComboBox<String> jComboBoxKategoriHome;
+    private javax.swing.JComboBox<String> jComboBoxTahunHome;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel5Home;
+    private javax.swing.JPanel jPanel1HOME;
+    private javax.swing.JPanel jPanel2HOME;
+    private javax.swing.JPanel jPanel3Home;
+    private javax.swing.JPanel jPanel4Home;
+    private javax.swing.JPanel jPanel5Home;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1Home;
+    private javax.swing.JTable jTable1Home;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextFieldDateHome;
+    private javax.swing.JTextField jTextFieldHome;
+    private javax.swing.JTextField jTextFieldJumlahHome;
+    private javax.swing.JTextField jTextFieldKeteranganHome;
+    private javax.swing.JLabel jenisHome;
+    private javax.swing.JLabel jumlahHome;
+    private javax.swing.JLabel kategoriHome;
+    private javax.swing.JLabel keteranganHome;
+    private javax.swing.JLabel pemasukanPengeluaranHome;
+    private javax.swing.JLabel riawayatHome;
+    private javax.swing.JLabel totalHome;
+    private javax.swing.JLabel totalPengeluaranHome;
     // End of variables declaration//GEN-END:variables
 }
