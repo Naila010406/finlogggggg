@@ -50,7 +50,7 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         setLocationRelativeTo(null);
-        setSize(1000,800);
+        setSize(800,600);
         pack();
 
     }
@@ -126,7 +126,7 @@ public class Home extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Jenis", "Kategori", "Tanggal", "Jumlah", "Keterangan"
+                "Jenis", "Kategori", "Date", "Jumlah", "Keterangan"
             }
         ));
         jScrollPane1Home.setViewportView(TabelRiwayat);
@@ -473,7 +473,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(totalPengeluaranHome))
                 .addGap(8, 8, 8)
                 .addComponent(riawayatHome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(PanelRiwayat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
