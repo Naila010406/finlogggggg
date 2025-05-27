@@ -49,7 +49,9 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        
+        setLocationRelativeTo(null);
+        setSize(1000,800);
+        pack();
 
     }
 
@@ -259,9 +261,19 @@ public class Home extends javax.swing.JFrame {
 
         incomebtn.setForeground(new java.awt.Color(255, 255, 255));
         incomebtn.setText("INCOME");
+        incomebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                incomebtnActionPerformed(evt);
+            }
+        });
 
         expensebtn.setForeground(new java.awt.Color(255, 255, 255));
         expensebtn.setText("EXPENSE");
+        expensebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                expensebtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelTransaksiLayout = new javax.swing.GroupLayout(PanelTransaksi);
         PanelTransaksi.setLayout(PanelTransaksiLayout);
@@ -560,6 +572,20 @@ public class Home extends javax.swing.JFrame {
             model.removeRow(row);
         }
     }//GEN-LAST:event_DeleteRowActionPerformed
+
+    private void incomebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incomebtnActionPerformed
+        // TODO add your handling code here:
+        if (incomebtn.isSelected()){
+            expensebtn.setSelected(false);
+        }
+    }//GEN-LAST:event_incomebtnActionPerformed
+
+    private void expensebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expensebtnActionPerformed
+        // TODO add your handling code here:
+        if (expensebtn.isSelected()){
+            incomebtn.setSelected(false);
+        }
+    }//GEN-LAST:event_expensebtnActionPerformed
 
     /**
      * @param args the command line arguments

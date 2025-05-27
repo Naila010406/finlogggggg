@@ -37,6 +37,7 @@ public class Login extends javax.swing.JFrame {
         jPasswordFieldPassswordLogin = new javax.swing.JPasswordField();
         jButtonRegisterLogin = new javax.swing.JButton();
         jLabel1Login = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,6 +107,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Jika belum memiliki akun silahkan register akun dahulu");
+
         javax.swing.GroupLayout jPanel2LoginLayout = new javax.swing.GroupLayout(jPanel2Login);
         jPanel2Login.setLayout(jPanel2LoginLayout);
         jPanel2LoginLayout.setHorizontalGroup(
@@ -125,6 +128,9 @@ public class Login extends javax.swing.JFrame {
                         .addGap(65, 65, 65)
                         .addComponent(BioLogin))
                     .addGroup(jPanel2LoginLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel1Login, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2LoginLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(jPanel2LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(UsernameLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,8 +140,8 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jPasswordFieldPassswordLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                             .addComponent(jTextFieldUsernameLogin)))
                     .addGroup(jPanel2LoginLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel1Login, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel1)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel2LoginLayout.setVerticalGroup(
@@ -159,7 +165,9 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel2LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegisterLogin)
                     .addComponent(jButtonLogin))
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -259,6 +267,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel XLogin;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonRegisterLogin;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel1Login;
     private javax.swing.JPanel jPanel2Login;
     private javax.swing.JPanel jPanelLogin;

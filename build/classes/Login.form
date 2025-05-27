@@ -118,6 +118,10 @@
                           <Component id="BioLogin" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                          <Component id="jLabel1Login" min="-2" pref="238" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="UsernameLogin" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
@@ -130,8 +134,8 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                          <Component id="jLabel1Login" min="-2" pref="238" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="29" max="32767" attributes="0"/>
@@ -162,7 +166,9 @@
                       <Component id="jButtonRegisterLogin" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonLogin" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="166" max="32767" attributes="0"/>
+                  <EmptySpace pref="103" max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -232,6 +238,11 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1Login">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Jika belum memiliki akun silahkan register akun dahulu"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

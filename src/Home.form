@@ -567,6 +567,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="INCOME"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="incomebtnActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="expensebtn">
                   <Properties>
@@ -575,6 +578,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="EXPENSE"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="expensebtnActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
