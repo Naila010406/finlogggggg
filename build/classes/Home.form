@@ -245,7 +245,7 @@
                           <Table columnCount="5" rowCount="0">
                             <Column editable="true" title="Jenis" type="java.lang.Object"/>
                             <Column editable="true" title="Kategori" type="java.lang.Object"/>
-                            <Column editable="true" title="Date" type="java.lang.Object"/>
+                            <Column editable="true" title="Bulan &amp; Tahun" type="java.lang.Object"/>
                             <Column editable="true" title="Jumlah" type="java.lang.Object"/>
                             <Column editable="true" title="Keterangan" type="java.lang.Object"/>
                           </Table>
@@ -512,10 +512,13 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="DATE"/>
+                    <Property name="text" type="java.lang.String" value="BULAN &amp; TAHUN"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tanggalText">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tanggalTextActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="PilihKategori">
                   <Properties>
