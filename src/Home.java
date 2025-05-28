@@ -126,7 +126,7 @@ public class Home extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Jenis", "Kategori", "Date", "Jumlah", "Keterangan"
+                "Jenis", "Kategori", "Bulan & Tahun", "Jumlah", "Keterangan"
             }
         ));
         jScrollPane1Home.setViewportView(TabelRiwayat);
@@ -240,7 +240,13 @@ public class Home extends javax.swing.JFrame {
 
         dateHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         dateHome.setForeground(new java.awt.Color(255, 255, 255));
-        dateHome.setText("DATE");
+        dateHome.setText("BULAN & TAHUN");
+
+        tanggalText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tanggalTextActionPerformed(evt);
+            }
+        });
 
         PilihKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GAJI", "THR", "UANG KAGET", "MAKANAN", "MINUMAN", "TRANSPORTASI", "LISTRIK", "GAME", "E-WALLET", "LAUNDRY", "KOS", "SELF REWARD", " " }));
 
@@ -586,6 +592,10 @@ public class Home extends javax.swing.JFrame {
             incomebtn.setSelected(false);
         }
     }//GEN-LAST:event_expensebtnActionPerformed
+
+    private void tanggalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tanggalTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tanggalTextActionPerformed
 
     /**
      * @param args the command line arguments
