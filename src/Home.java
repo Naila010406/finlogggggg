@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Vector;
+import java.time.LocalDate;
+import java.util.List;
+import java.math.BigDecimal;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -22,28 +25,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
-class KoneksiWindowsAuth {
-    public static Connection getConnection() {
-        try {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=projekPemlan;integratedSecurity=true";
-            Connection conn = DriverManager.getConnection(url);
-            System.out.println("Koneksi Berhasil (Windows Authentication)");
-            return conn;
-        } catch (SQLException e) {
-            System.err.println("Koneksi Gagal: " + e.getMessage());
-            return null;
-        }
-    }
-
-    // Untuk testing koneksi
-    public static void main(String[] args) {
-        getConnection();
-    }
-}
+import entity.Transaction;
+import repository.TransactionRepository;
 
 public class Home extends javax.swing.JFrame {
 
+    private static TransactionRepository tranRepo = new TransactionRepository();
+    public BigDecimal limit = new BigDecimal("-1");
     /**
      * Creates new form Home
      */
@@ -53,6 +41,26 @@ public class Home extends javax.swing.JFrame {
         setSize(800,600);
         pack();
 
+        LocalDate today = LocalDate.now();
+        int year = today.getYear();
+        int month = today.getMonthValue(); // 1 = January, 12 = December
+        tampilkanTransaksi();
+
+    }
+    
+    public void tampilkanTransaksi() {
+        try {
+            List<Transaction> list = tranRepo.findAll();    
+            
+            DefaultTableModel model = (DefaultTableModel) TabelRiwayat.getModel();
+            model.setRowCount(0); // This clears all the rows
+            for(Transaction t : list) {
+                model.addRow(new Object[]{t.getType(), t.getCategory(), t.getDate(), t.getAmount(), t.getNotes()});
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
 
     /**
@@ -84,25 +92,28 @@ public class Home extends javax.swing.JFrame {
         jumlahHome = new javax.swing.JLabel();
         keteranganHome = new javax.swing.JLabel();
         dateHome = new javax.swing.JLabel();
-        tanggalText = new javax.swing.JTextField();
         PilihKategori = new javax.swing.JComboBox<>();
         inputJumlah = new javax.swing.JTextField();
         KeteranganField = new javax.swing.JTextField();
         Tambahbtn = new javax.swing.JButton();
         incomebtn = new javax.swing.JRadioButton();
         expensebtn = new javax.swing.JRadioButton();
+        bulanSpinner = new javax.swing.JSpinner();
+        yearSpinner = new javax.swing.JSpinner();
+        infoTambahText = new javax.swing.JLabel();
         PanelPengeluaran = new javax.swing.JPanel();
         DateHome = new javax.swing.JLabel();
-        jTextFieldHome = new javax.swing.JTextField();
         totalHome = new javax.swing.JLabel();
         OKTotalbtn = new javax.swing.JButton();
         jTextField9 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
+        spinnerMonthExpense = new javax.swing.JSpinner();
+        spinnerYearExpense = new javax.swing.JSpinner();
+        limitTextInfo = new javax.swing.JLabel();
         PanelLimit = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         LimitOKbtn = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
+        textFieldLimit = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("frame2HOME"); // NOI18N
@@ -242,12 +253,6 @@ public class Home extends javax.swing.JFrame {
         dateHome.setForeground(new java.awt.Color(255, 255, 255));
         dateHome.setText("BULAN & TAHUN");
 
-        tanggalText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tanggalTextActionPerformed(evt);
-            }
-        });
-
         PilihKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GAJI", "THR", "UANG KAGET", "MAKANAN", "MINUMAN", "TRANSPORTASI", "LISTRIK", "GAME", "E-WALLET", "LAUNDRY", "KOS", "SELF REWARD", " " }));
 
         inputJumlah.addActionListener(new java.awt.event.ActionListener() {
@@ -281,31 +286,41 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        infoTambahText.setForeground(new java.awt.Color(255, 255, 255));
+        infoTambahText.setText("Info");
+
         javax.swing.GroupLayout PanelTransaksiLayout = new javax.swing.GroupLayout(PanelTransaksi);
         PanelTransaksi.setLayout(PanelTransaksiLayout);
         PanelTransaksiLayout.setHorizontalGroup(
             PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTransaksiLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(keteranganHome)
-                    .addComponent(jumlahHome)
-                    .addComponent(kategoriHome)
-                    .addComponent(dateHome)
-                    .addComponent(jenisHome))
-                .addGap(39, 39, 39)
-                .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(Tambahbtn)
-                        .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(KeteranganField, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
-                            .addComponent(inputJumlah)
-                            .addComponent(tanggalText)
-                            .addComponent(PilihKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(PanelTransaksiLayout.createSequentialGroup()
-                        .addComponent(incomebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(expensebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(keteranganHome)
+                            .addComponent(jumlahHome)
+                            .addComponent(kategoriHome)
+                            .addComponent(dateHome)
+                            .addComponent(jenisHome))
+                        .addGap(39, 39, 39)
+                        .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(KeteranganField, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                                .addComponent(inputJumlah)
+                                .addComponent(PilihKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelTransaksiLayout.createSequentialGroup()
+                                .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(bulanSpinner)
+                                    .addComponent(incomebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(expensebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                    .addComponent(yearSpinner)))))
+                    .addGroup(PanelTransaksiLayout.createSequentialGroup()
+                        .addComponent(infoTambahText, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Tambahbtn)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         PanelTransaksiLayout.setVerticalGroup(
@@ -317,9 +332,11 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(incomebtn)
                     .addComponent(expensebtn))
                 .addGap(18, 18, 18)
-                .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(dateHome)
-                    .addComponent(tanggalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(bulanSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(yearSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(kategoriHome)
@@ -333,7 +350,9 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(keteranganHome)
                     .addComponent(KeteranganField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(Tambahbtn)
+                .addGroup(PanelTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Tambahbtn)
+                    .addComponent(infoTambahText))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -367,8 +386,11 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(totalHome))
                 .addGap(33, 33, 33)
                 .addGroup(PanelPengeluaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldHome)
-                    .addComponent(jTextField9))
+                    .addComponent(jTextField9)
+                    .addGroup(PanelPengeluaranLayout.createSequentialGroup()
+                        .addComponent(spinnerMonthExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(spinnerYearExpense)))
                 .addGap(18, 18, 18)
                 .addComponent(OKTotalbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
@@ -378,9 +400,10 @@ public class Home extends javax.swing.JFrame {
             .addGroup(PanelPengeluaranLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(PanelPengeluaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DateHome)
-                    .addComponent(OKTotalbtn))
+                    .addComponent(OKTotalbtn)
+                    .addComponent(spinnerMonthExpense, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spinnerYearExpense, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(PanelPengeluaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,8 +411,8 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel14.setText("LIMIT");
+        limitTextInfo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        limitTextInfo.setText("LIMIT");
 
         PanelLimit.setBackground(new java.awt.Color(0, 0, 153));
 
@@ -398,6 +421,11 @@ public class Home extends javax.swing.JFrame {
         jLabel15.setText("LIMIT");
 
         LimitOKbtn.setText("OK");
+        LimitOKbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimitOkAction(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelLimitLayout = new javax.swing.GroupLayout(PanelLimit);
         PanelLimit.setLayout(PanelLimitLayout);
@@ -406,7 +434,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(PanelLimitLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LimitOKbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -423,11 +451,11 @@ public class Home extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        jTextField8.setBackground(new java.awt.Color(242, 242, 242));
-        jTextField8.setDisabledTextColor(new java.awt.Color(242, 242, 242));
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        textFieldLimit.setBackground(new java.awt.Color(242, 242, 242));
+        textFieldLimit.setDisabledTextColor(new java.awt.Color(242, 242, 242));
+        textFieldLimit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                textFieldLimitActionPerformed(evt);
             }
         });
 
@@ -443,18 +471,17 @@ public class Home extends javax.swing.JFrame {
                         .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pemasukanPengeluaranHome)
                             .addComponent(PanelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PanelLimit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2HOMELayout.createSequentialGroup()
-                                .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(totalPengeluaranHome, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel2HOMELayout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addGap(113, 113, 113)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(PanelPengeluaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(totalPengeluaranHome)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(PanelPengeluaran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2HOMELayout.createSequentialGroup()
+                                .addComponent(limitTextInfo)
+                                .addGap(18, 18, 18)
+                                .addComponent(textFieldLimit))))
                     .addComponent(riawayatHome))
                 .addContainerGap())
         );
@@ -470,9 +497,9 @@ public class Home extends javax.swing.JFrame {
                             .addGroup(jPanel2HOMELayout.createSequentialGroup()
                                 .addComponent(PanelPengeluaran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14))
+                                .addGroup(jPanel2HOMELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(limitTextInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textFieldLimit))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(PanelLimit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(PanelTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -527,12 +554,21 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TampilkanRiwayatActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void textFieldLimitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldLimitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
+    }//GEN-LAST:event_textFieldLimitActionPerformed
+    
     private void OKTotalbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKTotalbtnActionPerformed
-        // TODO add your handling code here:
+        int year = (Integer) spinnerYearExpense.getValue();
+        int month = (Integer) spinnerMonthExpense.getValue();
+        
+        try {
+            BigDecimal result = tranRepo.getTotalPengeluaranByMonth(year, month);
+            jTextField9.setText(result.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+            
     }//GEN-LAST:event_OKTotalbtnActionPerformed
 
     private void inputJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputJumlahActionPerformed
@@ -552,16 +588,45 @@ public class Home extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Silahkan pilih transaksi terlebih dahulu");
         }
         String kategori = (String)PilihKategori.getSelectedItem();
-        String tanggal = tanggalText.getText();
+        
         String jumlah = inputJumlah.getText().trim();
         String keterangan = KeteranganField.getText();
         
-        if (jenis.isEmpty() || kategori.isEmpty() || tanggal.isEmpty() || jumlah.isEmpty() || keterangan.isEmpty()){
+        if (jenis.isEmpty() || kategori.isEmpty() || jumlah.isEmpty() || keterangan.isEmpty()){
             JOptionPane.showMessageDialog(this,"Silahkan isi semua data terlebih dahulu","Try Again",JOptionPane.ERROR_MESSAGE);
         } else {
-            DefaultTableModel model = (DefaultTableModel) TabelRiwayat.getModel();
-            model.addRow(new Object[]{jenis, kategori, tanggal, jumlah, keterangan});
-            tanggalText.setText("");
+            int month = (Integer) bulanSpinner.getValue();
+            int year = (Integer) yearSpinner.getValue();
+            
+            LocalDate today = LocalDate.now();
+            int currYear = today.getYear();
+            int currMonth = today.getMonthValue(); // 1 = January, 12 = December
+            BigDecimal val = tranRepo.getTotalPengeluaranByMonth(currYear, currMonth);
+            
+            BigDecimal jumlahInput = new BigDecimal(jumlah);
+            BigDecimal total = val.add(jumlahInput);
+            
+            if (limit.compareTo(BigDecimal.valueOf(-1)) != 0 && val.add(jumlahInput).compareTo(limit) > 0) {
+                infoTambahText.setText("Kamu sudah melebihi limit");
+                return;
+            }
+            
+            Transaction transaction = new Transaction(
+                null,          
+                jenis,    
+                java.sql.Date.valueOf(LocalDate.of(year, month, 1)),        // date
+                kategori,       // category
+                new BigDecimal(jumlah),
+                keterangan      // notes
+            );
+            
+            try {
+                tranRepo.create(transaction);    
+            } catch (Exception e) {
+                
+            }
+            
+            tampilkanTransaksi();
             inputJumlah.setText("");
             KeteranganField.setText("");
         }
@@ -593,9 +658,10 @@ public class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_expensebtnActionPerformed
 
-    private void tanggalTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tanggalTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tanggalTextActionPerformed
+    private void LimitOkAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimitOkAction
+        limit = new BigDecimal(jTextField7.getText());
+        textFieldLimit.setText(jTextField7.getText());
+    }//GEN-LAST:event_LimitOkAction
 
     /**
      * @param args the command line arguments
@@ -649,28 +715,31 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel TahunHome;
     private javax.swing.JButton Tambahbtn;
     private javax.swing.JButton TampilkanRiwayat;
+    private javax.swing.JSpinner bulanSpinner;
     private javax.swing.JLabel dateHome;
     private javax.swing.JRadioButton expensebtn;
     private javax.swing.JRadioButton incomebtn;
+    private javax.swing.JLabel infoTambahText;
     private javax.swing.JTextField inputJumlah;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel5Home;
     private javax.swing.JPanel jPanel1HOME;
     private javax.swing.JPanel jPanel2HOME;
     private javax.swing.JScrollPane jScrollPane1Home;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField jTextFieldHome;
     private javax.swing.JLabel jenisHome;
     private javax.swing.JLabel jumlahHome;
     private javax.swing.JLabel kategoriHome;
     private javax.swing.JLabel keteranganHome;
+    private javax.swing.JLabel limitTextInfo;
     private javax.swing.JLabel pemasukanPengeluaranHome;
     private javax.swing.JLabel riawayatHome;
-    private javax.swing.JTextField tanggalText;
+    private javax.swing.JSpinner spinnerMonthExpense;
+    private javax.swing.JSpinner spinnerYearExpense;
+    private javax.swing.JTextField textFieldLimit;
     private javax.swing.JLabel totalHome;
     private javax.swing.JLabel totalPengeluaranHome;
+    private javax.swing.JSpinner yearSpinner;
     // End of variables declaration//GEN-END:variables
 }

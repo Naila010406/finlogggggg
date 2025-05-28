@@ -79,21 +79,19 @@
                                   <Component id="pemasukanPengeluaranHome" min="-2" max="-2" attributes="0"/>
                                   <Component id="PanelTransaksi" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="PanelLimit" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="totalPengeluaranHome" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="113" pref="113" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jTextField8" min="-2" pref="174" max="-2" attributes="0"/>
+                                      <Component id="totalPengeluaranHome" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="PanelPengeluaran" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="limitTextInfo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="textFieldLimit" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Component id="riawayatHome" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -114,9 +112,9 @@
                                   <Group type="102" attributes="0">
                                       <Component id="PanelPengeluaran" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField8" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="limitTextInfo" max="32767" attributes="0"/>
+                                          <Component id="textFieldLimit" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="PanelLimit" min="-2" max="-2" attributes="0"/>
@@ -395,28 +393,39 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="keteranganHome" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jumlahHome" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="kategoriHome" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="dateHome" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jenisHome" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="Tambahbtn" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="KeteranganField" pref="251" max="32767" attributes="0"/>
-                                      <Component id="inputJumlah" max="32767" attributes="0"/>
-                                      <Component id="tanggalText" max="32767" attributes="0"/>
-                                      <Component id="PilihKategori" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="keteranganHome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jumlahHome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="kategoriHome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dateHome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jenisHome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="KeteranganField" pref="251" max="32767" attributes="0"/>
+                                          <Component id="inputJumlah" max="32767" attributes="0"/>
+                                          <Component id="PilihKategori" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="bulanSpinner" max="32767" attributes="0"/>
+                                              <Component id="incomebtn" pref="100" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="expensebtn" pref="100" max="32767" attributes="0"/>
+                                              <Component id="yearSpinner" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="incomebtn" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="expensebtn" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="infoTambahText" min="-2" pref="261" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="Tambahbtn" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="44" max="32767" attributes="0"/>
@@ -433,9 +442,12 @@
                               <Component id="expensebtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="dateHome" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tanggalText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="dateHome" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="bulanSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="yearSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -453,7 +465,10 @@
                               <Component id="KeteranganField" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="Tambahbtn" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="Tambahbtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="infoTambahText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace pref="23" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -514,11 +529,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="BULAN &amp; TAHUN"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="tanggalText">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tanggalTextActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="PilihKategori">
                   <Properties>
@@ -585,6 +595,18 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="expensebtnActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JSpinner" name="bulanSpinner">
+                </Component>
+                <Component class="javax.swing.JSpinner" name="yearSpinner">
+                </Component>
+                <Component class="javax.swing.JLabel" name="infoTambahText">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Info"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="PanelPengeluaran">
@@ -605,8 +627,12 @@
                           </Group>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldHome" max="32767" attributes="0"/>
                               <Component id="jTextField9" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="spinnerMonthExpense" min="-2" pref="248" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="spinnerYearExpense" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="OKTotalbtn" min="-2" pref="47" max="-2" attributes="0"/>
@@ -619,9 +645,10 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldHome" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="DateHome" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="OKTotalbtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="spinnerMonthExpense" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="spinnerYearExpense" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -644,8 +671,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="DATE"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldHome">
                 </Component>
                 <Component class="javax.swing.JLabel" name="totalHome">
                   <Properties>
@@ -672,9 +697,13 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField9">
                 </Component>
+                <Component class="javax.swing.JSpinner" name="spinnerMonthExpense">
+                </Component>
+                <Component class="javax.swing.JSpinner" name="spinnerYearExpense">
+                </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel14">
+            <Component class="javax.swing.JLabel" name="limitTextInfo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="1"/>
@@ -695,7 +724,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="150" max="32767" attributes="0"/>
                           <Component id="jTextField7" min="-2" pref="548" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="LimitOKbtn" min="-2" pref="51" max="-2" attributes="0"/>
@@ -735,10 +764,13 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="OK"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LimitOkAction"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="textFieldLimit">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
@@ -748,7 +780,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField8ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldLimitActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
