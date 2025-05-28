@@ -7,11 +7,17 @@
  *
  * @author Family
  */
+
+import repository.UserRepository;
+import entity.User;
+
 public class Register extends javax.swing.JFrame {
 
     /**
      * Creates new form Register
      */
+    private static Register register;
+    private static UserRepository userRepo = new UserRepository();
     public static String name;
     public static String username;
     public static String password;
@@ -243,12 +249,25 @@ public class Register extends javax.swing.JFrame {
         username = jTextField2UsernameRegister.getText();
         password = jPasswordField1Register.getText();
         
-        Login lg = new Login();
+        try {
+            userRepo.create(new User(name, username, password));    
+            System.out.println("User has been registered!");
+            Login lg = new Login();
+            
+            Login.login = lg;
         
-        lg.setVisible(true);
-        lg.pack();
-        lg.setLocationRelativeTo(null);
-        lg.setDefaultCloseOperation(Register.EXIT_ON_CLOSE);
+            register.setVisible(false);
+            lg.setVisible(true);
+            lg.pack();
+            lg.setLocationRelativeTo(null);
+            lg.setDefaultCloseOperation(Register.EXIT_ON_CLOSE);
+        } catch (Exception e) {
+            jLabel1Registrasi.setText("Username sudah ada");
+        }
+        
+        
+        
+        
     } else {
         jLabel1Registrasi.setText("The password doesn't match");
     }
@@ -309,7 +328,9 @@ public class Register extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register().setVisible(true);
+                register = new Register();
+                
+                register.setVisible(true);
             }
         });
     }

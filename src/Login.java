@@ -7,8 +7,14 @@
  *
  * @author Family
  */
+
+import entity.User;
+import repository.UserRepository;
+
 public class Login extends javax.swing.JFrame {
 
+    public static Login login;
+    private static UserRepository userRepo = new UserRepository();
     /**
      * Creates new form Login
      */
@@ -197,15 +203,32 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsernameLoginActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-    if(jPasswordFieldPassswordLogin.getText().equals(Register.password)&&(jTextFieldUsernameLogin).equals(Register.username)){
-        Home hm = new Home();
-        hm.setVisible(true);
-        hm.pack();
-        hm.setLocationRelativeTo(null);
-        hm.setDefaultCloseOperation(Home.EXIT_ON_CLOSE);
-    } else {
-        jLabel1Login.setText("   Your password or username is invalid");
-    }
+    
+        String username = jTextFieldUsernameLogin.getText();
+        String password = jPasswordFieldPassswordLogin.getText();
+        
+        try {
+            User user = userRepo.read(username);
+            
+            if (user == null) {
+                jLabel1Login.setText("   Your password or username is invalid");
+                return;
+            }
+            
+            if (!user.getPassword().equals(password)) {
+                jLabel1Login.setText("   Your password or username is invalid");
+                return;
+            }
+            
+            login.setVisible(false);
+            Home hm = new Home();
+            hm.setVisible(true);
+            hm.pack();
+            hm.setLocationRelativeTo(null);
+            hm.setDefaultCloseOperation(Home.EXIT_ON_CLOSE);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonLoginActionPerformed
@@ -255,7 +278,9 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                login = new Login();
+                
+                login.setVisible(true);
             }
         });
     }
