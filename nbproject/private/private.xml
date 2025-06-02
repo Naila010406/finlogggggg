@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Raditya%20Maheswara/OneDrive/Documents/NetBeansProjects/FinLog/src/migrations/ddl.up.sql</file>
+            <file>file:/C:/Users/Raditya%20Maheswara/OneDrive/Documents/NetBeansProjects/FinLog/src/Home.java</file>
+            <file>file:/C:/Users/Raditya%20Maheswara/OneDrive/Documents/NetBeansProjects/FinLog/src/Login.java</file>
+            <file>file:/C:/Users/Raditya%20Maheswara/OneDrive/Documents/NetBeansProjects/FinLog/src/connection/KoneksiWindowsAuth.java</file>
+            <file>file:/C:/Users/Raditya%20Maheswara/OneDrive/Documents/NetBeansProjects/FinLog/src/Class.java</file>
+            <file>file:/C:/Users/Raditya%20Maheswara/OneDrive/Documents/NetBeansProjects/FinLog/src/Register.java</file>
+        </group>
     </open-files>
 </project-private>

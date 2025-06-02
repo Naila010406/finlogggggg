@@ -1,4 +1,5 @@
 
+import connection.KoneksiWindowsAuth;
 import java.awt.Color;
 import java.math.*;
 import javax.swing.BorderFactory;
@@ -582,9 +583,7 @@ public class Home extends javax.swing.JFrame {
             jenis = "Pemasukan";
         } else if (expensebtn.isSelected()){
             jenis = "Pengeluaran";
-        } else if (incomebtn.isSelected()&&expensebtn.isSelected()){
-            JOptionPane.showMessageDialog(this,"Silahkan pilih salah satu transaksi saja");
-        }else {
+        } else {
             JOptionPane.showMessageDialog(this,"Silahkan pilih transaksi terlebih dahulu");
         }
         String kategori = (String)PilihKategori.getSelectedItem();
